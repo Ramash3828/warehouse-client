@@ -8,6 +8,7 @@ import SignUp from "./Components/SignUp/SignUp";
 import AddItem from "./Components/AddItem/AddItem";
 import NotFound from "./Components/NootFound/NotFound";
 import Footer from "./Components/Footer/Footer";
+import MyItems from "./Components/MyItems/MyItems";
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
                 <Route path="/additem" element={<AddItem></AddItem>}></Route>
+                <Route path="/myitems" element={<MyItems></MyItems>}></Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
             <Footer></Footer>

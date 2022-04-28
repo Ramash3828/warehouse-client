@@ -1,0 +1,82 @@
+.footer {
+    background-color: #151515;
+    padding: 50px 0;
+    text-align: left;
+}
+.logo-area {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.logo {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 700;
+    border: 1px solid #fff;
+    padding: 10px;
+}
+.footer-title {
+    color: #ffffff;
+    font-size: 20px;
+}
+.footer ul {
+    padding-left: 0;
+}
+.footer ul li {
+    color: #a9a9a9;
+    list-style: none;
+}
+.footer ul li a {
+    text-decoration: none;
+    color: #a9a9a9;
+}
+.footer ul li a:hover {
+    color: #ffffff;
+}
+.footer-bottom {
+    background-color: #000000;
+    padding: 50px;
+}
+.apps-title {
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+.apps-area {
+    display: flex;
+    gap: 30px;
+}
+.apps {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2c425d;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.apps:hover {
+    background-color: #2c425d;
+    color: #fff;
+}
+.text p,
+.text h5 {
+    margin-bottom: 0;
+}
+.fa-brands {
+    font-size: 35px;
+}
+.ft-bottom-text {
+    color: #fff;
+    font-size: 18px;
+}
