@@ -1,0 +1,71 @@
+.cart-area {
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    overflow: hidden;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.cart-area img {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.cart-area img:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.cart-title {
+    color: #2c425d;
+    font-size: 48px;
+}
+.cart-text {
+    color: #806969;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.cart-desc {
+    padding: 15px;
+}
+.cart-desc h5,
+.cart-desc p:nth-child(3) {
+    text-align: left;
+    margin-bottom: 0;
+}
+.cart-desc p:not(:nth-child(3)) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+.update-btn {
+    background-color: #2c425d;
+    color: #fff;
+    border: 1px solid #2c425d;
+    padding: 7px 20px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.update-btn:hover {
+    background-color: #ffffff;
+    color: #2c425d;
+}

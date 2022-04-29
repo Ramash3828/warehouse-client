@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
+    const handleGooglePlay = () => {
+        window.open("https://play.google.com/store/apps", "_blank");
+    };
+    const handleAppleStore = () => {
+        window.open("https://www.apple.com/store", "_blank");
+    };
     return (
         <>
             <div className="footer">
@@ -56,7 +62,10 @@ const Footer = () => {
                                 Join our growing community
                             </h3>
                             <div className="apps-area">
-                                <div className="apps">
+                                <div
+                                    onClick={handleAppleStore}
+                                    className="apps"
+                                >
                                     <span>
                                         <i class="fa-brands fa-apple"></i>
                                     </span>
@@ -65,7 +74,10 @@ const Footer = () => {
                                         <h5>App Store</h5>
                                     </div>
                                 </div>
-                                <div className="apps">
+                                <div
+                                    onClick={handleGooglePlay}
+                                    className="apps"
+                                >
                                     <span>
                                         <i class="fa-brands fa-google-play"></i>
                                     </span>
@@ -84,16 +96,14 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-md-6 text-md-start">
                             <p className="ft-bottom-text">
-                                Proudly powered by <strong>React JS</strong> and
+                                Proudly powered by <strong>React JS</strong> and{" "}
                                 <strong>BiCycle Store</strong>
                             </p>
                         </div>
                         <div className="col-md-6 text-md-end">
                             <p className="ft-bottom-text">
-                                <strong>
-                                    Privacy Policy Terms and Conditions Contact
-                                    Us
-                                </strong>
+                                <strong>Privacy Policy Terms</strong> and{" "}
+                                <strong>Conditions Contact Us</strong>
                             </p>
                         </div>
                     </div>

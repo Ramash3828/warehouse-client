@@ -5,10 +5,10 @@ import "./Header.css";
 
 const Header = () => {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <header>
+            <nav className="navbar navbar-expand-lg myNav navbar-light ">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">
+                    <Link className="navbar-logo" to="/">
                         BiCycle Store
                     </Link>
                     <button
@@ -26,7 +26,7 @@ const Header = () => {
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <NavLink
-                                    className="nav-link active"
+                                    className="nav-link"
                                     aria-current="page"
                                     to="/"
                                 >
@@ -35,7 +35,7 @@ const Header = () => {
                             </li>
                             <li className="nav-item">
                                 <NavLink
-                                    className="nav-link active"
+                                    className="nav-link "
                                     aria-current="page"
                                     to="/manageitems"
                                 >
@@ -44,7 +44,7 @@ const Header = () => {
                             </li>
                             <li className="nav-item">
                                 <NavLink
-                                    className="nav-link active"
+                                    className="nav-link "
                                     aria-current="page"
                                     to="/additem"
                                 >
@@ -53,7 +53,7 @@ const Header = () => {
                             </li>
                             <li className="nav-item">
                                 <NavLink
-                                    className="nav-link active"
+                                    className="nav-link "
                                     aria-current="page"
                                     to="/myitems"
                                 >
@@ -62,7 +62,7 @@ const Header = () => {
                             </li>
                             <li className="nav-item">
                                 <NavLink
-                                    className="nav-link active"
+                                    className="nav-link "
                                     aria-current="page"
                                     to="/login"
                                 >
@@ -73,7 +73,7 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-        </div>
+        </header>
     );
 };
 
