@@ -9,7 +9,6 @@ import {
     useCreateUserWithEmailAndPassword,
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { toast } from "react-toastify";
 
 const SignUp = () => {
     const [errorTex, setErrorText] = useState("");
