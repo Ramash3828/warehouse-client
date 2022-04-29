@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import heroImg from "../../images/hero-img.jpg";
-import InventoryCart from "./InventoryCart/InventoryCart";
+import InventoryCart from "../../Components/InventoryCart/InventoryCart";
 
 const Home = () => {
     return (

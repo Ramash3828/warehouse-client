@@ -1,9 +1,13 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
+import auth from "../../firebase.init";
 
 import "./Header.css";
 
 const Header = () => {
+    const [user] = useAuthState(auth);
     return (
         <header>
             <nav className="navbar navbar-expand-lg myNav navbar-light ">
@@ -42,6 +46,7 @@ const Header = () => {
                                     Manage Items
                                 </NavLink>
                             </li>
+
                             <li className="nav-item">
                                 <NavLink
                                     className="nav-link "
@@ -61,13 +66,24 @@ const Header = () => {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink
-                                    className="nav-link "
-                                    aria-current="page"
-                                    to="/login"
-                                >
-                                    Login
-                                </NavLink>
+                                {user ? (
+                                    <NavLink
+                                        onClick={() => signOut(auth)}
+                                        className="nav-link "
+                                        aria-current="page"
+                                        to="/login"
+                                    >
+                                        Logout
+                                    </NavLink>
+                                ) : (
+                                    <NavLink
+                                        className="nav-link "
+                                        aria-current="page"
+                                        to="/login"
+                                    >
+                                        Login
+                                    </NavLink>
+                                )}
                             </li>
                         </ul>
                     </div>

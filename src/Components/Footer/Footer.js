@@ -67,7 +67,7 @@ const Footer = () => {
                                     className="apps"
                                 >
                                     <span>
-                                        <i class="fa-brands fa-apple"></i>
+                                        <i className="fa-brands fa-apple"></i>
                                     </span>
                                     <div className="text">
                                         <p>Download on the</p>
@@ -79,7 +79,7 @@ const Footer = () => {
                                     className="apps"
                                 >
                                     <span>
-                                        <i class="fa-brands fa-google-play"></i>
+                                        <i className="fa-brands fa-google-play"></i>
                                     </span>
                                     <div className="text">
                                         <p>Got it on</p>

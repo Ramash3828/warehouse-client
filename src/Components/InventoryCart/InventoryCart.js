@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import cartImg from "../../../images/hero-img.jpg";
+import cartImg from "../../images/hero-img.jpg";
 import "./InventoryCart.css";
 
 const InventoryCart = () => {
@@ -31,7 +31,7 @@ const InventoryCart = () => {
                             <Link to="/manageitems">
                                 <button className="update-btn">
                                     Update{"  "}
-                                    <i class="fa-solid fa-arrow-right"></i>
+                                    <i className="fa-solid fa-arrow-right"></i>
                                 </button>
                             </Link>
                         </div>

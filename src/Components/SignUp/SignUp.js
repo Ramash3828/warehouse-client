@@ -9,6 +9,7 @@ import {
     useCreateUserWithEmailAndPassword,
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
     const [errorTex, setErrorText] = useState("");
@@ -55,8 +56,6 @@ const SignUp = () => {
 
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
-        console.log("Updated profile");
-        console.log(user);
         setValidated(true);
     };
     return (
