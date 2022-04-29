@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import {
     useSendPasswordResetEmail,
@@ -21,6 +21,11 @@ const Login = () => {
         useSendPasswordResetEmail(auth);
     const navigate = useNavigate();
     const location = useLocation();
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user]);
     let errorInfo;
     if (error || resetError) {
         errorInfo = (
@@ -32,10 +37,7 @@ const Login = () => {
     if (loading || sending) {
         return <Loading></Loading>;
     }
-    let from = location.state?.from?.pathname || "/";
-    if (user) {
-        navigate(from, { replace: true });
-    }
+    const from = location.state?.from?.pathname || "/";
 
     const handleLogin = (e) => {
         e.preventDefault();

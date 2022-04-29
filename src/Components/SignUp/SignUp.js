@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -27,6 +27,12 @@ const SignUp = () => {
         });
     // Update user
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+            console.log(user);
+        }
+    }, [user, navigate]);
     let errorInfo;
     if (error || updateError) {
         errorInfo = (
@@ -36,10 +42,7 @@ const SignUp = () => {
         );
     }
     let from = location.state?.from?.pathname || "/";
-    if (user) {
-        navigate(from, { replace: true });
-        console.log(user);
-    }
+
     if (loading || updating) {
         return <Loading></Loading>;
     }
