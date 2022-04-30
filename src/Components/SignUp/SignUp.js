@@ -9,6 +9,7 @@ import {
     useCreateUserWithEmailAndPassword,
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
     const [errorTex, setErrorText] = useState("");
@@ -33,6 +34,7 @@ const SignUp = () => {
             console.log(user);
         }
     }, [user, navigate]);
+    let from = location.state?.from?.pathname || "/";
     let errorInfo;
     if (error || updateError) {
         errorInfo = (
@@ -41,7 +43,6 @@ const SignUp = () => {
             </p>
         );
     }
-    let from = location.state?.from?.pathname || "/";
 
     if (loading || updating) {
         return <Loading></Loading>;
@@ -58,6 +59,7 @@ const SignUp = () => {
 
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
+        toast.success("Send Verification email");
         setValidated(true);
     };
     return (
@@ -113,12 +115,22 @@ const SignUp = () => {
                 <p className="text-danger">{errorTex}</p>
 
                 {errorInfo}
-                <Form.Check
+                {/* <Form.Check
                     onClick={() => setAgree(!agree)}
                     type="checkbox"
                     className={agree ? "" : "text-danger"}
                     label="Accept BiCycle Store Terms and Conditions."
-                />
+                /> */}
+                <div>
+                    <input type="checkbox" name="terms" id="terms" />
+                    <label
+                        onClick={() => setAgree(!agree)}
+                        className={agree ? "ms-2" : "ms-2 text-danger"}
+                        htmlFor="terms"
+                    >
+                        Accept BiCycle Store Terms and Conditions.
+                    </label>
+                </div>
                 <button
                     disabled={!agree}
                     className="form-btn mt-2"

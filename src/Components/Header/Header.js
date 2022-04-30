@@ -48,22 +48,26 @@ const Header = () => {
                             </li>
 
                             <li className="nav-item">
-                                <NavLink
-                                    className="nav-link "
-                                    aria-current="page"
-                                    to="/additem"
-                                >
-                                    Add Item
-                                </NavLink>
+                                {user && (
+                                    <NavLink
+                                        className="nav-link "
+                                        aria-current="page"
+                                        to="/additem"
+                                    >
+                                        Add Item
+                                    </NavLink>
+                                )}
                             </li>
                             <li className="nav-item">
-                                <NavLink
-                                    className="nav-link "
-                                    aria-current="page"
-                                    to="/myitems"
-                                >
-                                    My Items
-                                </NavLink>
+                                {user && (
+                                    <NavLink
+                                        className="nav-link "
+                                        aria-current="page"
+                                        to="/myitems"
+                                    >
+                                        My Items
+                                    </NavLink>
+                                )}
                             </li>
                             <li className="nav-item">
                                 {user ? (

@@ -64,7 +64,7 @@ const InventoryCart = () => {
                             <img className="w-100" src={cartImg} alt="" />
                             <div className="cart-desc">
                                 <h5>Product Name</h5>
-                                <p>
+                                <p className="supplier">
                                     Supplier: <span>Atlas Ltd.</span>
                                 </p>
                                 <p>

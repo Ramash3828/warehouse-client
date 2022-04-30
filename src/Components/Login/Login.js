@@ -22,6 +22,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
+        console.log(user);
         if (user) {
             navigate(from, { replace: true });
         }
