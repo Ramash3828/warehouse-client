@@ -3,7 +3,7 @@ import {
     useSignInWithGithub,
     useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 import "./SocialLogin.css";
@@ -23,7 +23,7 @@ const SocialLogin = () => {
             navigate(from, { replace: true });
             console.log(googleUser);
         }
-    }, [googleUser, githubUser]);
+    }, [googleUser, githubUser, navigate, from]);
 
     let loading;
     if (googleLoading || githubLoading) {

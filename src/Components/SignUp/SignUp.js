@@ -28,13 +28,12 @@ const SignUp = () => {
         });
     // Update user
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const from = location.state?.from?.pathname || "/";
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true });
-            console.log(user);
         }
-    }, [user, navigate]);
-    let from = location.state?.from?.pathname || "/";
+    }, [user, navigate, from]);
     let errorInfo;
     if (error || updateError) {
         errorInfo = (
@@ -115,12 +114,7 @@ const SignUp = () => {
                 <p className="text-danger">{errorTex}</p>
 
                 {errorInfo}
-                {/* <Form.Check
-                    onClick={() => setAgree(!agree)}
-                    type="checkbox"
-                    className={agree ? "" : "text-danger"}
-                    label="Accept BiCycle Store Terms and Conditions."
-                /> */}
+
                 <div>
                     <input type="checkbox" name="terms" id="terms" />
                     <label

@@ -77,7 +77,7 @@ const InventoryCart = () => {
                                     Quantity: <span>55</span>
                                 </p>
                             </div>
-                            <Link to="/manageitems">
+                            <Link to="/inventory-manage">
                                 <button className="update-btn">Update</button>
                             </Link>
                         </div>
