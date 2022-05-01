@@ -7,6 +7,10 @@
 body {
     font-family: "Poppins", sans-serif;
 }
+.title {
+    color: #2c425d;
+    font-size: 48px;
+}
 .App {
     text-align: center;
 }

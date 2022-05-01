@@ -28,7 +28,7 @@ const InventoryCart = () => {
                                     Quantity: <span>55</span>
                                 </p>
                             </div>
-                            <Link to="/manageitems">
+                            <Link to="/inventory-manage">
                                 <button className="update-btn">
                                     Update{"  "}
                                     <i className="fa-solid fa-arrow-right"></i>

@@ -21,12 +21,13 @@ const Login = () => {
         useSendPasswordResetEmail(auth);
     const navigate = useNavigate();
     const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     useEffect(() => {
         console.log(user);
         if (user) {
             navigate(from, { replace: true });
         }
-    }, [user]);
+    }, [user, navigate, from]);
     let errorInfo;
     if (error || resetError) {
         errorInfo = (
@@ -38,7 +39,6 @@ const Login = () => {
     if (loading || sending) {
         return <Loading></Loading>;
     }
-    const from = location.state?.from?.pathname || "/";
 
     const handleLogin = (e) => {
         e.preventDefault();

@@ -9,8 +9,9 @@ import AddItem from "./Components/AddItem/AddItem";
 import NotFound from "./Components/NootFound/NotFound";
 import Footer from "./Components/Footer/Footer";
 import MyItems from "./Components/MyItems/MyItems";
+import InventoryManage from "./Components/InventoryManage/InventoryManage";
 import RequireAuth from "./RequireAuth";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
             <Header></Header>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
+                <Route
+                    path="/inventory-manage"
+                    element={<InventoryManage></InventoryManage>}
+                ></Route>
                 <Route
                     path="/manageitems"
                     element={
@@ -35,7 +40,7 @@ function App() {
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
             <Footer></Footer>
-            <ToastContainer />
+            <ToastContainer theme="colored" />
         </div>
     );
 }

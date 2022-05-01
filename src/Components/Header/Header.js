@@ -9,8 +9,8 @@ import "./Header.css";
 const Header = () => {
     const [user] = useAuthState(auth);
     return (
-        <header>
-            <nav className="navbar navbar-expand-lg myNav navbar-light ">
+        <header className="position-sticky top-0 z-index">
+            <nav className="navbar navbar-expand-lg myNav navbar-light">
                 <div className="container">
                     <Link className="navbar-logo" to="/">
                         BiCycle Store

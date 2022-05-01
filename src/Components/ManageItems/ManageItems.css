@@ -1,0 +1,38 @@
+.addPro-table {
+    width: 100%;
+}
+.addPro-table tbody tr td {
+    vertical-align: middle;
+}
+.addPro-table tbody tr td img {
+    width: 70px;
+    object-fit: contain;
+}
+
+.add-btn {
+    display: inline;
+    background-color: #2c425d;
+    border: 1px solid #2c425d;
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.add-btn:hover {
+    background-color: #ffffff;
+    color: #2c425d;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+@media (max-width: 470px) {
+    .addPro-table tr td,
+    .addPro-table tr th {
+        font-size: 13px;
+    }
+}
