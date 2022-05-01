@@ -8,6 +8,8 @@
     -o-border-radius: 7px;
 }
 .cart-area img {
+    height: 250px;
+    object-fit: cover;
     transform: scale(1);
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -42,7 +44,7 @@
 .cart-desc h5,
 .cart-desc p {
     text-align: left;
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
 .cart-desc p:not(:nth-child(2)) ~ p {

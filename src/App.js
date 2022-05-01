@@ -21,7 +21,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route
-                    path="/inventory-manage"
+                    path="/inventoryManage/"
+                    element={<InventoryManage></InventoryManage>}
+                ></Route>
+                <Route
+                    path="/inventoryManage/:id"
                     element={<InventoryManage></InventoryManage>}
                 ></Route>
                 <Route

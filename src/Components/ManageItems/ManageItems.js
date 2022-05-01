@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const ManageItems = () => {
     const [products, setProducts] = useState([]);
+
     useEffect(() => {
         fetch(`http://localhost:5000/product`)
             .then((res) => res.json())
@@ -30,18 +31,22 @@ const ManageItems = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>
-                            <img src={productImg} alt="" />
-                        </td>
-                        <td>Hero Plus XXL-60</td>
-                        <td>$122</td>
-                        <td>555</td>
-                        <td>
-                            <i className="fa-solid fa-trash-can"></i>
-                        </td>
-                    </tr>
+                    {products.map((product, id) => {
+                        return (
+                            <tr key={product._id}>
+                                <td>{id + 1}</td>
+                                <td>
+                                    <img src={product.img} alt="" />
+                                </td>
+                                <td>{product.name}</td>
+                                <td>${product.price}</td>
+                                <td>{product.quantity}</td>
+                                <td>
+                                    <i className="fa-solid fa-trash-can"></i>
+                                </td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>

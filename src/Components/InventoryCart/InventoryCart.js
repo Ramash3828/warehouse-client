@@ -1,156 +1,80 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import cartImg from "../../images/hero-img.jpg";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./InventoryCart.css";
 
 const InventoryCart = () => {
+    const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const url = "http://localhost:5000/product";
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => setProducts(data));
+    }, []);
+
+    const handleUpdate = (id) => {
+        navigate(`/inventoryManage/${id}`);
+    };
     return (
         <div className="pb-4">
             <h2 className="cart-title">Recently Added</h2>
             <p className="cart-text">BiCycle Store premium cars inventory</p>
             <div className="container">
                 <div className="row g-5">
-                    <div className="col-md-4">
-                        <div className="cart-area shadow">
-                            <img className="w-100" src={cartImg} alt="" />
-                            <div className="cart-desc">
-                                <h5>Product Name</h5>
-                                <p>
-                                    Supplier: <span>Atlas Ltd.</span>
-                                </p>
-                                <p>
-                                    Desc: <span>This is most popular Item</span>
-                                </p>
-                                <p>
-                                    price: <span>$99</span>
-                                </p>
-                                <p>
-                                    Quantity: <span>55</span>
-                                </p>
+                    {products.map((product) => {
+                        return (
+                            <div className="col-md-4" key={product._id}>
+                                <div className="cart-area shadow">
+                                    <img
+                                        className="w-100"
+                                        src={
+                                            product.img
+                                                ? product.img
+                                                : "No image URL"
+                                        }
+                                        alt=""
+                                    />
+                                    <div className="cart-desc">
+                                        <h5>{product?.name}</h5>
+                                        <p>
+                                            <strong>Supplier:</strong>{" "}
+                                            <span>{product?.supplier}</span>
+                                        </p>
+                                        <p>
+                                            <strong>Desc:</strong>{" "}
+                                            <span>
+                                                {product.desc
+                                                    ? product.desc.substring(
+                                                          0,
+                                                          30
+                                                      ) + " [...]"
+                                                    : product.desc}
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <strong>price:</strong>{" "}
+                                            <span>${product?.price}</span>
+                                        </p>
+                                        <p>
+                                            <strong>Quantity:</strong>{" "}
+                                            <span>{product?.quantity}</span>
+                                        </p>
+                                    </div>
+
+                                    <button
+                                        onClick={() =>
+                                            handleUpdate(product?._id)
+                                        }
+                                        className="update-btn"
+                                    >
+                                        Update{"  "}
+                                        <i className="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <Link to="/inventory-manage">
-                                <button className="update-btn">
-                                    Update{"  "}
-                                    <i className="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="cart-area shadow">
-                            <img className="w-100" src={cartImg} alt="" />
-                            <div className="cart-desc">
-                                <h5>Product Name</h5>
-                                <p>
-                                    Supplier: <span>Atlas Ltd.</span>
-                                </p>
-                                <p>
-                                    Desc: <span>This is most popular Item</span>
-                                </p>
-                                <p>
-                                    price: <span>$99</span>
-                                </p>
-                                <p>
-                                    Quantity: <span>55</span>
-                                </p>
-                            </div>
-                            <Link to="/manageitems">
-                                <button className="update-btn">Update</button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="cart-area shadow">
-                            <img className="w-100" src={cartImg} alt="" />
-                            <div className="cart-desc">
-                                <h5>Product Name</h5>
-                                <p className="supplier">
-                                    Supplier: <span>Atlas Ltd.</span>
-                                </p>
-                                <p>
-                                    Desc: <span>This is most popular Item</span>
-                                </p>
-                                <p>
-                                    price: <span>$99</span>
-                                </p>
-                                <p>
-                                    Quantity: <span>55</span>
-                                </p>
-                            </div>
-                            <Link to="/inventory-manage">
-                                <button className="update-btn">Update</button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="cart-area shadow">
-                            <img className="w-100" src={cartImg} alt="" />
-                            <div className="cart-desc">
-                                <h5>Product Name</h5>
-                                <p>
-                                    Supplier: <span>Atlas Ltd.</span>
-                                </p>
-                                <p>
-                                    Desc: <span>This is most popular Item</span>
-                                </p>
-                                <p>
-                                    price: <span>$99</span>
-                                </p>
-                                <p>
-                                    Quantity: <span>55</span>
-                                </p>
-                            </div>
-                            <Link to="/manageitems">
-                                <button className="update-btn">Update</button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="cart-area shadow">
-                            <img className="w-100" src={cartImg} alt="" />
-                            <div className="cart-desc">
-                                <h5>Product Name</h5>
-                                <p>
-                                    Supplier: <span>Atlas Ltd.</span>
-                                </p>
-                                <p>
-                                    Desc: <span>This is most popular Item</span>
-                                </p>
-                                <p>
-                                    price: <span>$99</span>
-                                </p>
-                                <p>
-                                    Quantity: <span>55</span>
-                                </p>
-                            </div>
-                            <Link to="/manageitems">
-                                <button className="update-btn">Update</button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="cart-area shadow">
-                            <img className="w-100" src={cartImg} alt="" />
-                            <div className="cart-desc">
-                                <h5>Product Name</h5>
-                                <p>
-                                    Supplier: <span>Atlas Ltd.</span>
-                                </p>
-                                <p>
-                                    Desc: <span>This is most popular Item</span>
-                                </p>
-                                <p>
-                                    price: <span>$99</span>
-                                </p>
-                                <p>
-                                    Quantity: <span>55</span>
-                                </p>
-                            </div>
-                            <Link to="/manageitems">
-                                <button className="update-btn">Update</button>
-                            </Link>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>
