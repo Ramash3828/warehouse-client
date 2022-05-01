@@ -8,11 +8,11 @@ const MyItems = () => {
         <div className="container my-5">
             <h2 className="title">My Inventory Items</h2>
             <div className="text-end d-block mb-4">
-                <Link to="/additem">
-                    <div className="mb-3 form-btn add-btn">Add New</div>
+                <Link to="/additem" className="text-decoration-none">
+                    <div className="mb-3 form-btn add-btn ">Add New</div>
                 </Link>
             </div>
-            <table class="table table-success table-striped table-hover addPro-table">
+            <table className="table table-success table-striped table-hover addPro-table">
                 <thead>
                     <tr>
                         <th>SL.</th>
@@ -33,7 +33,7 @@ const MyItems = () => {
                         <td>$122</td>
                         <td>555</td>
                         <td>
-                            <i class="fa-solid fa-trash-can"></i>
+                            <i className="fa-solid fa-trash-can"></i>
                         </td>
                     </tr>
                 </tbody>

@@ -18,10 +18,8 @@ const SocialLogin = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     useEffect(() => {
-        console.log(googleUser);
         if (googleUser || githubUser) {
             navigate(from, { replace: true });
-            console.log(googleUser);
         }
     }, [googleUser, githubUser, navigate, from]);
 

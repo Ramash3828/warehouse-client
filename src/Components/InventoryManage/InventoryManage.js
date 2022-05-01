@@ -1,4 +1,3 @@
-import React from "react";
 import "./InventoryManage.css";
 import cartImage from "./../../images/BiCycle-2.jpg";
 
@@ -49,7 +48,7 @@ const InventoryManage = () => {
                             </tbody>
                         </table>
                         <button className="form-btn my-3">Delivered</button>
-                        <div class="input-group mb-3">
+                        <div className="input-group mb-3">
                             <input
                                 type="number"
                                 className="form-control"
