@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import {
@@ -39,14 +40,25 @@ const Login = () => {
         return <Loading></Loading>;
     }
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
             e.stopPropagation();
         }
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
         setValidated(true);
+        await fetch("http://localhost:5000/login", {
+            method: "POST",
+            body: JSON.stringify({ ...email }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                localStorage.setItem("accessToken", data.accessToken);
+            });
     };
     // Reset Password
     const resetPassword = async () => {
