@@ -1,10 +1,12 @@
 # BiCycle Store
 
 Live site link [BiCycle Store](https://github.com/facebook/create-react-app).
-BiCicle Store Client site link :
-BiCicle Store Server site link :
 
-Stack Overflow link [BiCycle Store](https://github.com/facebook/create-react-app).
+BiCicle Store Client site link : [Client site](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-Ramash3828)
+
+BiCicle Store Server site link : [Server site](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-Ramash3828)
+
+Stack Overflow link [BiCycle Store](Stack overflow).
 
 ## Uses package
 
