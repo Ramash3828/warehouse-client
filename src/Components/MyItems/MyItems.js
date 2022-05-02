@@ -31,7 +31,6 @@ const MyItems = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     const remainingData = products.filter((u) => u._id !== id);
-                    console.log(remainingData);
                     setProducts(remainingData);
                     toast.success(data.success);
                 });

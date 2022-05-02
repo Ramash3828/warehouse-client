@@ -26,12 +26,6 @@ const ManageItems = () => {
             .then((data) => setProducts(data));
     }, [page, quantity]);
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/inventory`)
-    //         .then((res) => res.json())
-    //         .then((data) => setProducts(data));
-    // }, [page, quantity]);
-
     return (
         <div className="container my-5">
             <h2 className="title">Manage Inventory</h2>

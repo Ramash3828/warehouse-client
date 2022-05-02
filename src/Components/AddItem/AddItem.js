@@ -50,7 +50,6 @@ const AddItem = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 e.target.reset();
                 toast.success(data.success);
                 navigate("/manageitems");
@@ -86,7 +85,7 @@ const AddItem = () => {
                             type="email"
                             placeholder="User-email"
                             name="email"
-                            value={email}
+                            value={email ? email : ""}
                             disabled
                             required
                         />
