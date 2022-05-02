@@ -5,12 +5,34 @@ import { toast } from "react-toastify";
 
 const ManageItems = () => {
     const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
+    const [quantity, setQuantity] = useState(10);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/inventory`)
+        fetch(`http://localhost:5000/productCount`)
+            .then((res) => res.json())
+            .then((data) => {
+                const count = data.count;
+                const pages = Math.ceil(count / quantity);
+                setPageCount(pages);
+            });
+    }, [page, quantity]);
+
+    useEffect(() => {
+        fetch(
+            `http://localhost:5000/inventory/countItem/?page=${page}&quantity=${quantity}`
+        )
             .then((res) => res.json())
             .then((data) => setProducts(data));
-    }, []);
+    }, [page, quantity]);
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/inventory`)
+    //         .then((res) => res.json())
+    //         .then((data) => setProducts(data));
+    // }, [page, quantity]);
+
     const handleDelete = (id) => {
         const proceeds = window.confirm("Are you sure Delete the item?");
 
@@ -75,6 +97,27 @@ const ManageItems = () => {
                     })}
                 </tbody>
             </table>
+            <div className="pb-5">
+                {[...Array(pageCount).keys()].map((number, id) => {
+                    return (
+                        <button
+                            key={id}
+                            onClick={() => setPage(number)}
+                            className={`btn btn-outline-primary btn-sm me-2 ${
+                                page === number ? "active" : ""
+                            }`}
+                        >
+                            {number + 1}
+                        </button>
+                    );
+                })}
+                <select onClick={(e) => setQuantity(e.target.value)}>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
         </div>
     );
 };
