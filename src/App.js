@@ -13,6 +13,7 @@ import InventoryManage from "./Components/InventoryManage/InventoryManage";
 import RequireAuth from "./RequireAuth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Blogs from "./Components/Blogs/Blogs";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
             <Header></Header>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
+                <Route path="/blogs" element={<Blogs></Blogs>}></Route>
                 <Route
                     path="/inventoryManage/"
                     element={<InventoryManage></InventoryManage>}
@@ -30,17 +32,27 @@ function App() {
                 ></Route>
                 <Route
                     path="/manageitems"
-                    element={
-                        <RequireAuth>
-                            <ManageItems></ManageItems>
-                        </RequireAuth>
-                    }
+                    element={<ManageItems></ManageItems>}
                 ></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
 
-                <Route path="/additem" element={<AddItem></AddItem>}></Route>
-                <Route path="/myitems" element={<MyItems></MyItems>}></Route>
+                <Route
+                    path="/additem"
+                    element={
+                        <RequireAuth>
+                            <AddItem></AddItem>
+                        </RequireAuth>
+                    }
+                ></Route>
+                <Route
+                    path="/myitems"
+                    element={
+                        <RequireAuth>
+                            <MyItems></MyItems>
+                        </RequireAuth>
+                    }
+                ></Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
             <Footer></Footer>
