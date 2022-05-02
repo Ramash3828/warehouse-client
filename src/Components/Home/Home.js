@@ -9,7 +9,7 @@ const Home = () => {
             <div
                 className="hero-area py-5"
                 style={{
-                    backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(https://images.immediate.co.uk/production/volatile/sites/21/2021/02/DSC_4342-5fff9b5.jpg?quality=90&resize=768%2C574)`,
+                    backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(https://i.ibb.co/JBnJNby/banner.jpg)`,
                 }}
             >
                 <div className="container">

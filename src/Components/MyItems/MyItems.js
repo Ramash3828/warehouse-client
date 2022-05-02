@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./MyItems.css";
-import productImg from "./../../images/BiCycle-2.jpg";
 import { Link } from "react-router-dom";
 import auth from "./../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -8,10 +7,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [products, setProducts] = useState([]);
-    console.log(user.email);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product`)
+        fetch(`http://localhost:5000/inventory`)
             .then((res) => res.json())
             .then((data) => {
                 const userProduct = data.filter(
@@ -19,7 +17,7 @@ const MyItems = () => {
                 );
                 setProducts(userProduct);
             });
-    }, []);
+    }, [user.email]);
     return (
         <div className="container my-5">
             <h2 className="title">My Inventory Items</h2>

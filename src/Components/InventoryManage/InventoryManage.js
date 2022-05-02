@@ -1,5 +1,4 @@
 import "./InventoryManage.css";
-import cartImage from "./../../images/BiCycle-2.jpg";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -7,14 +6,13 @@ import { toast } from "react-toastify";
 const InventoryManage = () => {
     const [item, setItem] = useState({});
     const [qty, setQty] = useState(0);
-    const [updateItem, setUpdateItem] = useState({});
     const { id } = useParams();
     const navigate = useNavigate();
 
     const { name, desc, supplier, img, price, quantity } = item;
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `http://localhost:5000/inventory/${id}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
@@ -30,7 +28,7 @@ const InventoryManage = () => {
         item["quantity"] = total;
         delete item._id;
 
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `http://localhost:5000/inventory/${id}`;
         console.log(id);
         fetch(url, {
             method: "PUT",
@@ -52,12 +50,11 @@ const InventoryManage = () => {
     // Decrement quantity
     const handleDelivered = () => {
         const prevQty = parseInt(item.quantity);
-        const currentQty = parseInt(qty);
         const total = prevQty - 1;
         item["quantity"] = total;
         delete item._id;
 
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `http://localhost:5000/inventory/${id}`;
         console.log(id);
         fetch(url, {
             method: "PUT",

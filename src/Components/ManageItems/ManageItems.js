@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./ManageItems.css";
-import productImg from "./../../images/BiCycle-2.jpg";
 import { Link } from "react-router-dom";
 
 const ManageItems = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product`)
+        fetch(`http://localhost:5000/inventory`)
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);
