@@ -140,7 +140,7 @@ const InventoryManage = () => {
                         </div>
                         <Link
                             to="/manageitems"
-                            className="add-btn d-inline cursor-pointer"
+                            className="add-btn d-inline cursor-pointer text-decoration-none"
                             id="basic-addon2"
                             type="submit"
                         >
