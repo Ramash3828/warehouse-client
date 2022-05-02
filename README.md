@@ -6,12 +6,6 @@ BiCicle Store Server site link :
 
 Stack Overflow link [BiCycle Store](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
 ## Uses package
 
 -   react-bootstrap
