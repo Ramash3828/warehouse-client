@@ -22,3 +22,7 @@
     background-color: #ffffff;
     color: #2c425d;
 }
+.qty-input {
+    width: 33vw;
+    padding: 5px;
+}

@@ -1,13 +1,15 @@
 import "./InventoryManage.css";
 import cartImage from "./../../images/BiCycle-2.jpg";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const InventoryManage = () => {
     const [item, setItem] = useState({});
-    const [qty, setQty] = useState("");
+    const [qty, setQty] = useState(0);
+    const [updateItem, setUpdateItem] = useState({});
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const { name, desc, supplier, img, price, quantity } = item;
 
@@ -21,20 +23,54 @@ const InventoryManage = () => {
     }, [id]);
 
     const onHandleInput = (e) => {
+        e.preventDefault();
+        const prevQty = parseInt(item.quantity);
+        const currentQty = parseInt(qty);
+        const total = prevQty + currentQty;
+        item["quantity"] = total;
+        delete item._id;
+
         const url = `http://localhost:5000/product/${id}`;
+        console.log(id);
         fetch(url, {
             method: "PUT",
             body: JSON.stringify({
-                ...qty,
+                ...item,
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },
         })
-            .then((response) => response.json())
+            .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                navigate("/manageitems");
                 e.target.reset();
+                toast.success(data.success);
+            });
+    };
+
+    // Decrement quantity
+    const handleDelivered = () => {
+        const prevQty = parseInt(item.quantity);
+        const currentQty = parseInt(qty);
+        const total = prevQty - 1;
+        item["quantity"] = total;
+        delete item._id;
+
+        const url = `http://localhost:5000/product/${id}`;
+        console.log(id);
+        fetch(url, {
+            method: "PUT",
+            body: JSON.stringify({
+                ...item,
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                navigate("/manageitems");
                 toast.success(data.success);
             });
     };
@@ -82,24 +118,28 @@ const InventoryManage = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        <button className="form-btn my-3">Delivered</button>
-                        <div className="input-group mb-3">
-                            <input
-                                onBlur={(e) => setQty(e.target.value)}
-                                type="number"
-                                className="form-control"
-                                placeholder="Input Product Quantity"
-                                aria-label="Recipient's username"
-                                aria-describedby="basic-addon2"
-                            />
-                            <span
-                                onClick={onHandleInput}
-                                className="input-group-text cursor-pointer"
-                                id="basic-addon2"
-                                role="button"
-                            >
-                                Update
-                            </span>
+                        <button
+                            onClick={handleDelivered}
+                            className="form-btn my-3"
+                        >
+                            Delivered
+                        </button>
+                        <div className="d-flex mb-3 ">
+                            <form onSubmit={(e) => onHandleInput(e)}>
+                                <input
+                                    onBlur={(e) => setQty(e.target.value)}
+                                    type="number"
+                                    className="qty-input"
+                                    placeholder="Input Product Quantity"
+                                />
+                                <button
+                                    className="add-btn d-inline cursor-pointer"
+                                    id="basic-addon2"
+                                    type="submit"
+                                >
+                                    Update
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

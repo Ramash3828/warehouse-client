@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./MyItems.css";
 import productImg from "./../../images/BiCycle-2.jpg";
 import { Link } from "react-router-dom";
+import auth from "./../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const MyItems = () => {
+    const [user] = useAuthState(auth);
+    const [products, setProducts] = useState([]);
+    console.log(user.email);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/product`)
+            .then((res) => res.json())
+            .then((data) => {
+                const userProduct = data.filter(
+                    (product) => product.email === user.email
+                );
+                setProducts(userProduct);
+            });
+    }, []);
     return (
         <div className="container my-5">
             <h2 className="title">My Inventory Items</h2>
@@ -24,18 +40,22 @@ const MyItems = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>
-                            <img src={productImg} alt="" />
-                        </td>
-                        <td>Hero Plus XXL-60</td>
-                        <td>$122</td>
-                        <td>555</td>
-                        <td>
-                            <i className="fa-solid fa-trash-can"></i>
-                        </td>
-                    </tr>
+                    {products.map((product, id) => {
+                        return (
+                            <tr key={product._id}>
+                                <td>{id + 1}</td>
+                                <td>
+                                    <img src={product.img} alt="" />
+                                </td>
+                                <td>{product.name}</td>
+                                <td>${product.price}</td>
+                                <td>{product.quantity}</td>
+                                <td>
+                                    <i className="fa-solid fa-trash-can"></i>
+                                </td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>
