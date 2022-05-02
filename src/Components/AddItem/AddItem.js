@@ -5,11 +5,13 @@ import "./AddItem.css";
 import auth from "./../../firebase.init";
 import Loading from "./../Loading/Loading";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AddItem = () => {
     const [user, loading] = useAuthState(auth);
     const [validated, setValidated] = useState(false);
     const { email } = user;
+    const navigate = useNavigate();
     const [product, setProduct] = useState({
         name: "",
         email: email,
@@ -51,6 +53,7 @@ const AddItem = () => {
                 console.log(data);
                 e.target.reset();
                 toast.success(data.success);
+                navigate("/manageitems");
             });
 
         setValidated(true);

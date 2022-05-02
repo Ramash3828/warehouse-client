@@ -43,7 +43,7 @@ const Header = () => {
                                     aria-current="page"
                                     to="/manageitems"
                                 >
-                                    Manage Items
+                                    Manage Inventory
                                 </NavLink>
                             </li>
 

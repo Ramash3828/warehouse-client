@@ -1,6 +1,6 @@
 import "./InventoryManage.css";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const InventoryManage = () => {
@@ -138,6 +138,14 @@ const InventoryManage = () => {
                                 </button>
                             </form>
                         </div>
+                        <Link
+                            to="/manageitems"
+                            className="add-btn d-inline cursor-pointer"
+                            id="basic-addon2"
+                            type="submit"
+                        >
+                            Back to home
+                        </Link>
                     </div>
                 </div>
             </div>
