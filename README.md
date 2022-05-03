@@ -1,12 +1,12 @@
 # BiCycle Store
 
-Live site link [BiCycle Store](https://github.com/facebook/create-react-app).
+Live site link [BiCycle Store](-----).
 
 BiCicle Store Client site link : [Client site](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-Ramash3828)
 
 BiCicle Store Server site link : [Server site](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-Ramash3828)
 
-Stack Overflow link [BiCycle Store](Stack overflow).
+Stack Overflow link [BiCycle Store](https://stackoverflow.com/questions/72090710/i-can-try-to-get-user-token-for-verify-user-code-copy-and-paste-to-the-jwt-io-w).
 
 ## Uses package
 

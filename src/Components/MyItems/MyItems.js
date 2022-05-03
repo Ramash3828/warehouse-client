@@ -1,28 +1,46 @@
 import React, { useEffect, useState } from "react";
 import "./MyItems.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "./../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 
+import { signOut } from "firebase/auth";
+import Loading from "../Loading/Loading";
+
 const MyItems = () => {
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
+    const navigate = useNavigate();
     const { email } = user;
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const email = user.email;
-        console.log(localStorage.getItem("accessToken"));
-        fetch(`http://localhost:5000/myitem?email=${email}`, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setProducts(data);
-            });
-    }, [user.email]);
+        (async function () {
+            const email = user.email;
+            await fetch(`http://localhost:5000/myitem?email=${email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            })
+                .then((res) => {
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        navigate("/login");
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    setProducts(data);
+                    toast.error(data.message);
+                });
+        })();
+    }, [user.email, navigate]);
+
+    // if (loading) {
+    //     return <Loading></Loading>;
+    // }
     // Delete Item
     const handleDelete = (id) => {
         const proceeds = window.confirm("Are you sure Delete the item?");
@@ -64,7 +82,7 @@ const MyItems = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map((product, id) => {
+                    {products?.map((product, id) => {
                         return (
                             <tr key={product._id}>
                                 <td>{id + 1}</td>

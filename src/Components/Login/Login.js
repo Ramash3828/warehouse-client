@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import {
@@ -48,9 +47,10 @@ const Login = () => {
         }
         await signInWithEmailAndPassword(email, password);
         setValidated(true);
+
         await fetch("http://localhost:5000/login", {
             method: "POST",
-            body: JSON.stringify({ ...email }),
+            body: JSON.stringify({ email: email }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },
