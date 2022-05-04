@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.css";
 import heroImg from "../../images/hero-img.jpg";
 import InventoryCart from "../../Components/InventoryCart/InventoryCart";
+import GetJioin from "../GetJoin/GetJioin";
+import ContactPage from "../ContactPage/ContactPage";
 
 const Home = () => {
     return (
@@ -41,6 +43,8 @@ const Home = () => {
             <div className="product-area py-5">
                 <InventoryCart></InventoryCart>
             </div>
+            <GetJioin></GetJioin>
+            <ContactPage></ContactPage>
         </main>
     );
 };

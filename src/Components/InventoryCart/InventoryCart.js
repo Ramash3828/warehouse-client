@@ -19,7 +19,7 @@ const InventoryCart = () => {
     return (
         <div className="pb-4">
             <h2 className="cart-title">Recently Added</h2>
-            <p className="cart-text">BiCycle Store premium cars inventory</p>
+            <p className="cart-text">BiCycle Store premium bicycle inventory</p>
             <div className="container">
                 <div className="row g-5">
                     {products.map((product) => {
