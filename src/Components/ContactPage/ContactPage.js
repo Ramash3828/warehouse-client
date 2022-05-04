@@ -4,67 +4,100 @@ import Iframe from "react-iframe";
 import "./ContactPage.css";
 
 const ContactPage = () => {
+    const onHandleTitweer = () => {
+        window.open("https://twitter.com/");
+    };
+
+    const onHandleFacebook = () => {
+        window.open("https://www.facebook.com/");
+    };
+
+    const onHandleSkype = () => {
+        window.open("https://www.skype.com/en/");
+    };
+
+    const onHandleInstagram = () => {
+        window.open("https://www.instagram.com/");
+    };
+
     return (
-        <div className="py-5">
+        <div className="py-5 location-area">
             <div className="container">
-                <h2 className="title mb-3">Our Location</h2>
+                <h2 className="title mb-5">Our Location</h2>
                 <div className="row">
-                    <div className="col-md-6">
-                        <div className="con-form-area text-start">
-                            <h4
-                                style={{ fontSize: "30px" }}
-                                className="mb-3 text-md-start text-center form-title"
-                            >
-                                Contact Us
-                            </h4>
-                            <Form className="text-start">
-                                <Form.Group
-                                    className="mb-3"
-                                    controlId="formBasicEmail"
+                    <div className="col-md-6 d-flex align-items-center flex-direction-column">
+                        <div>
+                            <div className="con-form-area text-start">
+                                <h4
+                                    style={{ fontSize: "30px" }}
+                                    className="mb-3 text-md-start text-center form-title"
                                 >
-                                    <Form.Control
-                                        type="email"
-                                        placeholder="Enter email"
-                                        required
-                                    />
-                                </Form.Group>
-                                <textarea
-                                    class="form-control"
-                                    id="exampleFormControlTextarea4"
-                                    rows="3"
-                                ></textarea>
-                                <button className="form-btn mt-2" type="submit">
-                                    Send email
+                                    Contact Us
+                                </h4>
+                                <Form className="text-start">
+                                    <Form.Group
+                                        className="mb-3"
+                                        controlId="formBasicEmail"
+                                    >
+                                        <Form.Control
+                                            type="email"
+                                            placeholder="Enter email"
+                                            required
+                                        />
+                                    </Form.Group>
+                                    <textarea
+                                        class="form-control"
+                                        id="exampleFormControlTextarea4"
+                                        rows="3"
+                                    ></textarea>
+                                    <button
+                                        className="form-btn mt-2"
+                                        type="submit"
+                                    >
+                                        Send email
+                                    </button>
+                                </Form>
+                            </div>
+                            <div className="con-social-area py-4">
+                                <button
+                                    onClick={onHandleTitweer}
+                                    className="contact-btn"
+                                >
+                                    <i className="fa-brands fa-twitter"></i>
                                 </button>
-                            </Form>
-                        </div>
-                        <div className="con-social-area py-4">
-                            <button className="contact-btn">
-                                <i className="fa-brands fa-twitter"></i>
-                            </button>
-                            <button className="contact-btn">
-                                <i className="fa-brands fa-facebook-f"></i>
-                            </button>
-                            <button className="contact-btn">
-                                <i className="fa-brands fa-skype"></i>
-                            </button>
-                            <button className="contact-btn">
-                                <i className="fa-brands fa-instagram-square"></i>
-                            </button>
-                        </div>
-                        <div className="text-start d-flex gap-5">
-                            <p>
-                                <strong>
-                                    <i class="fa-solid fa-phone"></i>
-                                </strong>{" "}
-                                017XXXXXXXXX
-                            </p>
-                            <p>
-                                <strong>
-                                    <i class="fa-solid fa-envelope"></i>
-                                </strong>{" "}
-                                example@gmail.com
-                            </p>
+                                <button
+                                    onClick={onHandleFacebook}
+                                    className="contact-btn"
+                                >
+                                    <i className="fa-brands fa-facebook-f"></i>
+                                </button>
+                                <button
+                                    onClick={onHandleSkype}
+                                    className="contact-btn"
+                                >
+                                    <i className="fa-brands fa-skype"></i>
+                                </button>
+                                <button
+                                    onClick={onHandleInstagram}
+                                    className="contact-btn"
+                                >
+                                    <i className="fa-brands fa-instagram-square"></i>
+                                </button>
+                            </div>
+                            <div className=" d-flex justify-content-center gap-5">
+                                <p>
+                                    <strong>
+                                        <i class="fa-solid fa-phone"></i>
+                                    </strong>{" "}
+                                    017XXXXXXXXX
+                                </p>
+                                <p>
+                                    <strong>
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </strong>{" "}
+                                    example@gmail.com
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className="col-md-6">

@@ -68,7 +68,7 @@ const MyItems = () => {
     ) : (
         <div className="container my-5">
             <h2 className="title">My Inventory Items</h2>
-            <div className="text-end d-block mb-4">
+            <div className="text-end d-block my-4">
                 <Link to="/additem" className="text-decoration-none">
                     <div className="mb-3 form-btn add-btn ">Add New</div>
                 </Link>

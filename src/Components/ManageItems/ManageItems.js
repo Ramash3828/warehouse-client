@@ -6,7 +6,7 @@ const ManageItems = () => {
     const [products, setProducts] = useState([]);
     const [page, setPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
-    const [quantity, setQuantity] = useState(5);
+    const [quantity, setQuantity] = useState(10);
 
     useEffect(() => {
         fetch(`https://damp-forest-06266.herokuapp.com/productCount`)
@@ -29,7 +29,7 @@ const ManageItems = () => {
     return (
         <div className="container my-5">
             <h2 className="title">Manage Inventory</h2>
-            <div className="text-end d-block mb-4">
+            <div className="text-end d-block my-4">
                 <Link to="/additem" className="text-decoration-none">
                     <div className="mb-3 form-btn add-btn ">Add New</div>
                 </Link>
@@ -76,7 +76,9 @@ const ManageItems = () => {
                 })}
                 <select onClick={(e) => setQuantity(e.target.value)}>
                     <option value="5">5</option>
-                    <option value="10">10</option>
+                    <option selected value="10">
+                        10
+                    </option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                 </select>

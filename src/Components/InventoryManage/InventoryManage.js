@@ -121,8 +121,11 @@ const InventoryManage = () => {
                         >
                             Delivered
                         </button>
-                        <div className="d-flex mb-3 ">
-                            <form onSubmit={(e) => onHandleInput(e)}>
+                        <div className=" mb-3 w-100">
+                            <form
+                                onSubmit={(e) => onHandleInput(e)}
+                                className="w-100 d-flex"
+                            >
                                 <input
                                     onBlur={(e) => setQty(e.target.value)}
                                     type="number"
