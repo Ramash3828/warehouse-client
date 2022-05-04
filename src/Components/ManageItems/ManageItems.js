@@ -9,7 +9,7 @@ const ManageItems = () => {
     const [quantity, setQuantity] = useState(5);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/productCount`)
+        fetch(`https://damp-forest-06266.herokuapp.com/productCount`)
             .then((res) => res.json())
             .then((data) => {
                 const count = data.count;
@@ -20,7 +20,7 @@ const ManageItems = () => {
 
     useEffect(() => {
         fetch(
-            `http://localhost:5000/inventory/countItem/?page=${page}&quantity=${quantity}`
+            `https://damp-forest-06266.herokuapp.com/inventory/countItem/?page=${page}&quantity=${quantity}`
         )
             .then((res) => res.json())
             .then((data) => setProducts(data));

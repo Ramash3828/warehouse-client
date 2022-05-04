@@ -48,7 +48,7 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
         setValidated(true);
 
-        await fetch("http://localhost:5000/login", {
+        await fetch("https://damp-forest-06266.herokuapp.com/login", {
             method: "POST",
             body: JSON.stringify({ email: email }),
             headers: {

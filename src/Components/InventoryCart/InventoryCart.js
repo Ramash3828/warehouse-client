@@ -7,7 +7,7 @@ const InventoryCart = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = "http://localhost:5000/inventory";
+        const url = "https://damp-forest-06266.herokuapp.com/inventory";
         fetch(url)
             .then((res) => res.json())
             .then((data) => setProducts(data.slice(0, 6)));

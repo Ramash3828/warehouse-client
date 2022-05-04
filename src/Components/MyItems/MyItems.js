@@ -17,13 +17,16 @@ const MyItems = () => {
     useEffect(() => {
         (async function () {
             const email = user.email;
-            await fetch(`http://localhost:5000/myitem?email=${email}`, {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem(
-                        "accessToken"
-                    )}`,
-                },
-            })
+            await fetch(
+                `https://damp-forest-06266.herokuapp.com/myitem?email=${email}`,
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                }
+            )
                 .then((res) => {
                     if (res.status === 401 || res.status === 403) {
                         signOut(auth);
@@ -46,7 +49,7 @@ const MyItems = () => {
         const proceeds = window.confirm("Are you sure Delete the item?");
 
         if (proceeds) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://damp-forest-06266.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: "DELETE",
             })

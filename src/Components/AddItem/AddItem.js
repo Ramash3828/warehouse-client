@@ -37,7 +37,7 @@ const AddItem = () => {
             e.stopPropagation();
         }
         // Insert data
-        const url = "http://localhost:5000/inventory";
+        const url = "https://damp-forest-06266.herokuapp.com/inventory";
 
         fetch(url, {
             method: "POST",

@@ -12,7 +12,7 @@ const InventoryManage = () => {
     const { name, desc, supplier, img, price, quantity } = item;
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://damp-forest-06266.herokuapp.com/inventory/${id}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
@@ -28,7 +28,7 @@ const InventoryManage = () => {
         item["quantity"] = total;
         delete item._id;
 
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://damp-forest-06266.herokuapp.com/inventory/${id}`;
         console.log(id);
         fetch(url, {
             method: "PUT",
@@ -54,7 +54,7 @@ const InventoryManage = () => {
         item["quantity"] = total;
         delete item._id;
 
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://damp-forest-06266.herokuapp.com/inventory/${id}`;
         console.log(id);
         fetch(url, {
             method: "PUT",
