@@ -16,6 +16,8 @@ Stack Overflow link [BiCycle Store](https://stackoverflow.com/questions/72090710
 -   firebase
 -   font awesome cdn
 
+*   react-iframe
+
 ## Explain My website
 
 ### Home Page
@@ -23,6 +25,7 @@ Stack Overflow link [BiCycle Store](https://stackoverflow.com/questions/72090710
 1. Menubar that contain Home, Blogs, Inventory Manage, Signin. If logged (Add Item, My Items, Logout)
 2. Banner for the web site
 3. Inventory Product Item (Six item). Click to Update button navigate to manage inventory page, there view each product details and click the Delivered Button decrement the quantity and input field enter the number then click update the quantity increases
+4. Extra two section
 
 ### Inventory Manage menu
 
