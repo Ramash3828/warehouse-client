@@ -142,7 +142,7 @@ const InventoryManage = () => {
                             </form>
                         </div>
                         <Link
-                            to="/manageitems"
+                            to="/"
                             className="add-btn d-inline cursor-pointer text-decoration-none"
                             id="basic-addon2"
                             type="submit"
