@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Iframe from "react-iframe";
 import "./ContactPage.css";
