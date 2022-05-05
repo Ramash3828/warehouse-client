@@ -41,9 +41,9 @@ const MyItems = () => {
         })();
     }, [user.email, navigate]);
 
-    // if (loading) {
-    //     return <Loading></Loading>;
-    // }
+    if (loading) {
+        return <Loading></Loading>;
+    }
     // Delete Item
     const handleDelete = (id) => {
         const proceeds = window.confirm("Are you sure Delete the item?");

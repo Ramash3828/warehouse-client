@@ -36,10 +36,17 @@ const InventoryCart = () => {
                                         alt=""
                                     />
                                     <div className="cart-desc">
-                                        <h5>{product?.name}</h5>
+                                        <h5>{product.name}</h5>
                                         <p>
                                             <strong>Supplier:</strong>{" "}
-                                            <span>{product?.supplier}</span>
+                                            <span>
+                                                {product.supplier
+                                                    ? product.supplier.substring(
+                                                          0,
+                                                          25
+                                                      ) + " [...]"
+                                                    : product.supplier}
+                                            </span>
                                         </p>
                                         <p>
                                             <strong>Desc:</strong>{" "}

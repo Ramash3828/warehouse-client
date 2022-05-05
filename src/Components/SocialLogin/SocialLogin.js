@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+    useAuthState,
     useSignInWithGithub,
     useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -14,11 +15,40 @@ const SocialLogin = () => {
         useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] =
         useSignInWithGithub(auth);
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     useEffect(() => {
-        if (googleUser || githubUser) {
+        if (googleUser) {
+            fetch("https://damp-forest-06266.herokuapp.com/login", {
+                method: "POST",
+                body: JSON.stringify({
+                    email: googleUser?.user.email,
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    localStorage.setItem("accessToken", data.accessToken);
+                });
+            navigate(from, { replace: true });
+        } else if (githubUser) {
+            fetch("https://damp-forest-06266.herokuapp.com/login", {
+                method: "POST",
+                body: JSON.stringify({
+                    email: githubUser?.user.email,
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    localStorage.setItem("accessToken", data.accessToken);
+                });
             navigate(from, { replace: true });
         }
     }, [googleUser, githubUser, navigate, from]);
@@ -31,6 +61,13 @@ const SocialLogin = () => {
         setError(googleError?.message);
     }
 
+    const handleGoogleLogin = () => {
+        signInWithGoogle();
+    };
+    const handleGithubLogin = () => {
+        signInWithGithub();
+    };
+
     return (
         <div>
             <div className="or-line">
@@ -41,14 +78,14 @@ const SocialLogin = () => {
             <p className="text-danger">{error}</p>
             {loading}
             <button
-                onClick={() => signInWithGoogle()}
+                onClick={handleGoogleLogin}
                 className="form-btn mt-2 social-btn"
                 type="submit"
             >
                 <i className="fa-brands fa-google me-3"></i> Login with Google
             </button>
             <button
-                onClick={() => signInWithGithub()}
+                onClick={handleGithubLogin}
                 className="form-btn mt-2 social-btn"
                 type="submit"
             >
