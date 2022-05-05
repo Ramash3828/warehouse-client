@@ -23,7 +23,7 @@
     -ms-transition: border 0.33s;
     -o-transition: border 0.33s;
 }
-.active,
+
 .nav-item a:hover {
     color: #162231 !important;
     font-weight: bold;

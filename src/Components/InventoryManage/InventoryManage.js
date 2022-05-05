@@ -74,13 +74,15 @@ const InventoryManage = () => {
 
     return (
         <div className="container py-5">
-            <h2 className="mb-4 p-title">Inventory Management </h2>
+            <h2 className="mb-5 p-title">Inventory Management </h2>
             <div className="row g-5">
-                <div className="col-md-6">
-                    <img src={img} alt="" />
+                <div className="col-md-6 mx-auto h-auto ">
+                    <div className="image-area">
+                        <img src={img} alt="" />
+                    </div>
                 </div>
                 <div className="col-md-6">
-                    <div className="cart-details-area">
+                    <div className="cart-details-area w-100">
                         <table className="text-start p-table">
                             <tbody>
                                 <tr>

@@ -62,7 +62,6 @@ const MyItems = () => {
         }
     };
 
-    // email ? <h1>Please Add to New Item!!!</h1>
     return !email ? (
         <h1 className="py-5 my-5 text-danger">Please Add to New Item!!!</h1>
     ) : (

@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.css";
-import heroImg from "../../images/hero-img.jpg";
 import InventoryCart from "../../Components/InventoryCart/InventoryCart";
 import GetJioin from "../GetJoin/GetJioin";
 import ContactPage from "../ContactPage/ContactPage";
@@ -28,15 +27,7 @@ const Home = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-md-6 py-4 d-flex justify-content-center ">
-                            <div className="img-area ">
-                                <img
-                                    className="hero-img"
-                                    src={heroImg}
-                                    alt=""
-                                />
-                            </div>
-                        </div>
+                        <div className="col-md-6 py-4 d-none d-md-block "></div>
                     </div>
                 </div>
             </div>
