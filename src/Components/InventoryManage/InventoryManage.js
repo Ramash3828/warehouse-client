@@ -29,7 +29,7 @@ const InventoryManage = () => {
         delete item._id;
 
         const url = `https://damp-forest-06266.herokuapp.com/inventory/${id}`;
-        console.log(id);
+
         fetch(url, {
             method: "PUT",
             body: JSON.stringify({
