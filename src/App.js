@@ -36,7 +36,11 @@ function App() {
                 ></Route>
                 <Route
                     path="/manageitems"
-                    element={<ManageItems></ManageItems>}
+                    element={
+                        <RequireAuth>
+                            <ManageItems></ManageItems>
+                        </RequireAuth>
+                    }
                 ></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>

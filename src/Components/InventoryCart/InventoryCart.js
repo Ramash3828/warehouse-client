@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./InventoryCart.css";
 
 const InventoryCart = () => {
@@ -83,6 +83,14 @@ const InventoryCart = () => {
                         );
                     })}
                 </div>
+                <Link
+                    to="/manageitems"
+                    className="mt-4 add-btn d-inline cursor-pointer text-decoration-none"
+                    id="basic-addon2"
+                    type="submit"
+                >
+                    All Inventory
+                </Link>
             </div>
         </div>
     );
