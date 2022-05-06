@@ -123,7 +123,7 @@ const InventoryManage = () => {
                                 <tr>
                                     <td>Product Sold</td>
                                     <td>:</td>
-                                    <td>{sold}</td>
+                                    <td>{quantity ? sold : "Sold Out"}</td>
                                 </tr>
                                 <tr>
                                     <td>Product Quantity</td>
@@ -159,12 +159,12 @@ const InventoryManage = () => {
                             </form>
                         </div>
                         <Link
-                            to="/"
+                            to="/manageitems"
                             className="add-btn d-inline cursor-pointer text-decoration-none"
                             id="basic-addon2"
                             type="submit"
                         >
-                            Back to home
+                            Manage Inventory
                         </Link>
                     </div>
                 </div>

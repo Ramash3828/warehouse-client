@@ -47,13 +47,15 @@ const Header = () => {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink
-                                    className="nav-link "
-                                    aria-current="page"
-                                    to="/manageitems"
-                                >
-                                    Manage Inventory
-                                </NavLink>
+                                {user && (
+                                    <NavLink
+                                        className="nav-link "
+                                        aria-current="page"
+                                        to="/manageitems"
+                                    >
+                                        Manage Inventory
+                                    </NavLink>
+                                )}
                             </li>
 
                             <li className="nav-item">

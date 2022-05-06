@@ -44,6 +44,10 @@ const MyItems = () => {
     if (loading) {
         return <Loading></Loading>;
     }
+    // Update Inventory Manage
+    const handleUpdate = (id) => {
+        navigate(`/inventoryManage/${id}`);
+    };
     // Delete Item
     const handleDelete = (id) => {
         const proceeds = window.confirm("Are you sure Delete the item?");
@@ -97,6 +101,14 @@ const MyItems = () => {
                                 <td>{product.sold}</td>
                                 <td>{product.quantity}</td>
                                 <td>
+                                    <button
+                                        onClick={() =>
+                                            handleUpdate(product?._id)
+                                        }
+                                        className="btn btn-outline-success btn-sm"
+                                    >
+                                        Update
+                                    </button>
                                     <i
                                         style={{
                                             cursor: "pointer",
@@ -105,7 +117,7 @@ const MyItems = () => {
                                         onClick={() =>
                                             handleDelete(product._id)
                                         }
-                                        className="fa-solid fa-trash-can text-danger"
+                                        className="fa-solid fa-trash-can text-danger delete-btn"
                                     ></i>
                                 </td>
                             </tr>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ManageItems.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const ManageItems = () => {
@@ -8,6 +8,7 @@ const ManageItems = () => {
     const [page, setPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
     const [quantity, setQuantity] = useState(5);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`https://damp-forest-06266.herokuapp.com/productCount`)
@@ -26,7 +27,10 @@ const ManageItems = () => {
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, [page, quantity]);
-
+    // Update Inventory Manage
+    const handleUpdate = (id) => {
+        navigate(`/inventoryManage/${id}`);
+    };
     // Delete Item
     const handleDelete = (id) => {
         const proceeds = window.confirm("Are you sure Delete the item?");
@@ -78,6 +82,14 @@ const ManageItems = () => {
                                 <td>{product.sold}</td>
                                 <td>{product.quantity}</td>
                                 <td>
+                                    <button
+                                        onClick={() =>
+                                            handleUpdate(product?._id)
+                                        }
+                                        className="btn btn-outline-success btn-sm"
+                                    >
+                                        Update
+                                    </button>
                                     <i
                                         style={{
                                             cursor: "pointer",
@@ -86,7 +98,7 @@ const ManageItems = () => {
                                         onClick={() =>
                                             handleDelete(product._id)
                                         }
-                                        className="fa-solid fa-trash-can text-danger"
+                                        className="fa-solid fa-trash-can text-danger delete-btn"
                                     ></i>
                                 </td>
                             </tr>
