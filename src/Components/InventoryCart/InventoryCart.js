@@ -67,14 +67,6 @@ const InventoryCart = () => {
                                             <strong>Quantity:</strong>{" "}
                                             <span>{product?.quantity}</span>
                                         </p>
-                                        <p>
-                                            <strong>Sold:</strong>{" "}
-                                            <span>
-                                                {product?.quantity
-                                                    ? product?.sold
-                                                    : "Sold Out"}
-                                            </span>
-                                        </p>
                                     </div>
 
                                     <button
