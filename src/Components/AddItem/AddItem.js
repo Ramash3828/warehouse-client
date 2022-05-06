@@ -18,10 +18,11 @@ const AddItem = () => {
         desc: "",
         supplier: "",
         price: "",
+        sold: "",
         quantity: "",
         img: "",
     });
-    const { name, desc, supplier, price, quantity, img } = product;
+    const { name, desc, supplier, price, quantity, img, sold } = product;
 
     const onInputChange = (e) => {
         setProduct({ ...product, [e.target.name]: e.target.value });
@@ -121,6 +122,16 @@ const AddItem = () => {
                             name="quantity"
                             value={quantity}
                             required
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Product Sold</Form.Label>
+                        <Form.Control
+                            onChange={(e) => onInputChange(e)}
+                            type="number"
+                            placeholder="Product Sold"
+                            name="sold"
+                            value={sold}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3">
