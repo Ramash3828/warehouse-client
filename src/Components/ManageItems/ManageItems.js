@@ -60,6 +60,7 @@ const ManageItems = () => {
                         <th>IMAGE</th>
                         <th>PRODUCT NAME</th>
                         <th>PRICE</th>
+                        <th>SOLD</th>
                         <th>QUANTITY</th>
                         <th>ACTION</th>
                     </tr>
@@ -74,6 +75,7 @@ const ManageItems = () => {
                                 </td>
                                 <td>{product.name}</td>
                                 <td>${product.price}</td>
+                                <td>{product.sold}</td>
                                 <td>{product.quantity}</td>
                                 <td>
                                     <i

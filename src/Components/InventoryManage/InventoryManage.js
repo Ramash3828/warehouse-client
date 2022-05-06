@@ -9,7 +9,7 @@ const InventoryManage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const { name, desc, supplier, img, price, quantity } = item;
+    const { name, desc, supplier, img, price, quantity, sold } = item;
 
     useEffect(() => {
         const url = `https://damp-forest-06266.herokuapp.com/inventory/${id}`;
@@ -48,10 +48,20 @@ const InventoryManage = () => {
     };
 
     // Decrement quantity
+
     const handleDelivered = () => {
         const prevQty = parseInt(item.quantity);
-        const total = prevQty - 1;
+        let total;
+        let soldQty = parseInt(item.sold);
+        if (item.quantity < 1) {
+            soldQty = soldQty + 0;
+            return toast.error("No Stock available !!!");
+        } else {
+            soldQty = soldQty + 1;
+            total = prevQty - 1;
+        }
         item["quantity"] = total;
+        item["sold"] = soldQty;
         delete item._id;
 
         const url = `https://damp-forest-06266.herokuapp.com/inventory/${id}`;
@@ -67,7 +77,7 @@ const InventoryManage = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                navigate("/manageitems");
+                navigate("/");
                 toast.success(data.success);
             });
     };
@@ -109,6 +119,11 @@ const InventoryManage = () => {
                                     <td>Product Price</td>
                                     <td>:</td>
                                     <td>${price}</td>
+                                </tr>
+                                <tr>
+                                    <td>Product Sold</td>
+                                    <td>:</td>
+                                    <td>{sold}</td>
                                 </tr>
                                 <tr>
                                     <td>Product Quantity</td>
