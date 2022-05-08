@@ -3,6 +3,7 @@
 }
 .addPro-table tbody tr td {
     vertical-align: middle;
+    word-wrap: none;
 }
 .addPro-table tbody tr td:nth-child(3) {
     text-align: left;

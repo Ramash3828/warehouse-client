@@ -76,55 +76,57 @@ const MyItems = () => {
                     <div className="mb-3 form-btn add-btn ">Add New</div>
                 </Link>
             </div>
-            <table className="table table-success table-striped table-hover addPro-table">
-                <thead>
-                    <tr>
-                        <th>SL.</th>
-                        <th>IMAGE</th>
-                        <th>PRODUCT NAME</th>
-                        <th>PRICE</th>
-                        <th>SOLD</th>
-                        <th>QUANTITY</th>
-                        <th>ACTION</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products?.map((product, id) => {
-                        return (
-                            <tr key={product._id}>
-                                <td>{id + 1}</td>
-                                <td>
-                                    <img src={product.img} alt="" />
-                                </td>
-                                <td>{product.name}</td>
-                                <td>${product.price}</td>
-                                <td>{product.sold}</td>
-                                <td>{product.quantity}</td>
-                                <td>
-                                    <button
-                                        onClick={() =>
-                                            handleUpdate(product?._id)
-                                        }
-                                        className="btn btn-outline-success btn-sm"
-                                    >
-                                        Update
-                                    </button>
-                                    <i
-                                        style={{
-                                            cursor: "pointer",
-                                            padding: "10px",
-                                        }}
-                                        onClick={() =>
-                                            handleDelete(product._id)
-                                        }
-                                        className="fa-solid fa-trash-can text-danger delete-btn"
-                                    ></i>
-                                </td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
+            <div className="table-responsive-md text-nowrap ">
+                <table className="table table-success table-striped table-hover addPro-table">
+                    <thead>
+                        <tr>
+                            <th>SL.</th>
+                            <th>IMAGE</th>
+                            <th>PRODUCT NAME</th>
+                            <th>PRICE</th>
+                            <th>SOLD</th>
+                            <th>QUANTITY</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {products?.map((product, id) => {
+                            return (
+                                <tr key={product._id}>
+                                    <td>{id + 1}</td>
+                                    <td>
+                                        <img src={product.img} alt="" />
+                                    </td>
+                                    <td>{product.name}</td>
+                                    <td>${product.price}</td>
+                                    <td>{product.sold}</td>
+                                    <td>{product.quantity}</td>
+                                    <td>
+                                        <button
+                                            onClick={() =>
+                                                handleUpdate(product?._id)
+                                            }
+                                            className="btn btn-outline-success btn-sm"
+                                        >
+                                            Update
+                                        </button>
+                                        <i
+                                            style={{
+                                                cursor: "pointer",
+                                                padding: "10px",
+                                            }}
+                                            onClick={() =>
+                                                handleDelete(product._id)
+                                            }
+                                            className="fa-solid fa-trash-can text-danger delete-btn"
+                                        ></i>
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

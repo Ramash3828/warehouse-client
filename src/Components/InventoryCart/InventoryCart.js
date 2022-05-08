@@ -11,7 +11,7 @@ const InventoryCart = () => {
         fetch(url)
             .then((res) => res.json())
             .then((data) => setProducts(data.slice(0, 6)));
-    }, []);
+    }, [products]);
 
     const handleUpdate = (id) => {
         navigate(`/inventoryManage/${id}`);
