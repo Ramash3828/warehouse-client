@@ -1,5 +1,6 @@
+import { async } from "@firebase/util";
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -8,6 +9,9 @@ import "./Header.css";
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const [clicked, setClicked] = useState(false);
+    useEffect(() => {}, [clicked]);
+
     return (
         <header className="position-sticky top-0 z-index">
             <nav className="navbar navbar-expand-lg myNav navbar-light">
@@ -26,10 +30,16 @@ const Header = () => {
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarText">
+                    <div
+                        className={`collapse navbar-collapse ${
+                            clicked ? "" : "show"
+                        }`}
+                        id="navbarText"
+                    >
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                            <li className="nav-item ">
                                 <NavLink
+                                    onClick={() => setClicked(!clicked)}
                                     className="nav-link"
                                     aria-current="page"
                                     to="/"
@@ -39,6 +49,7 @@ const Header = () => {
                             </li>
                             <li className="nav-item">
                                 <NavLink
+                                    onClick={() => setClicked(!clicked)}
                                     className="nav-link "
                                     aria-current="page"
                                     to="/blogs"
@@ -46,9 +57,10 @@ const Header = () => {
                                     Blogs
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item ">
                                 {user && (
                                     <NavLink
+                                        onClick={() => setClicked(!clicked)}
                                         className="nav-link "
                                         aria-current="page"
                                         to="/manageitems"
@@ -61,6 +73,7 @@ const Header = () => {
                             <li className="nav-item">
                                 {user && (
                                     <NavLink
+                                        onClick={() => setClicked(!clicked)}
                                         className="nav-link "
                                         aria-current="page"
                                         to="/additem"
@@ -72,6 +85,7 @@ const Header = () => {
                             <li className="nav-item">
                                 {user && (
                                     <NavLink
+                                        onClick={() => setClicked(!clicked)}
                                         className="nav-link "
                                         aria-current="page"
                                         to="/myitems"
@@ -92,6 +106,7 @@ const Header = () => {
                                     </NavLink>
                                 ) : (
                                     <NavLink
+                                        onClick={() => setClicked(!clicked)}
                                         className="nav-link "
                                         aria-current="page"
                                         to="/login"
