@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -9,7 +9,6 @@ import "./Header.css";
 const Header = () => {
     const [user] = useAuthState(auth);
     const [clicked, setClicked] = useState(false);
-    useEffect(() => {}, [clicked]);
 
     return (
         <header className="position-sticky top-0 z-index">
@@ -31,7 +30,7 @@ const Header = () => {
                     </button>
                     <div
                         className={`collapse navbar-collapse ${
-                            clicked ? "" : "show"
+                            clicked ? "show" : ""
                         }`}
                         id="navbarText"
                     >
