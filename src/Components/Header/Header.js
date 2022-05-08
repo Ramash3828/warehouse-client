@@ -95,7 +95,10 @@ const Header = () => {
                             <li className="nav-item">
                                 {user ? (
                                     <NavLink
-                                        onClick={() => signOut(auth)}
+                                        onClick={() => {
+                                            signOut(auth);
+                                            setClicked(!clicked);
+                                        }}
                                         className="nav-link "
                                         aria-current="page"
                                         to="/login"
