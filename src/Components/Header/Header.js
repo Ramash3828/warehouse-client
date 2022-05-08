@@ -18,20 +18,20 @@ const Header = () => {
                         BiCycle Store
                     </Link>
                     <button
-                        className="navbar-toggler"
+                        className={`navbar-toggler ${
+                            clicked ? "collapsed" : ""
+                        }`}
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarText"
                         aria-controls="navbarText"
-                        aria-expanded="false"
+                        aria-expanded={clicked}
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div
-                        className={`collapse navbar-collapse ${
-                            clicked ? "show" : ""
-                        }`}
+                        className={`collapse navbar-collapse ${clicked && ""}`}
                         id="navbarText"
                     >
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
