@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
